@@ -16,7 +16,7 @@ export function LandingHero() {
         <div className="mb-10 flex justify-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-white/60 bg-white/70 px-5 py-2 text-sm font-bold shadow-lg backdrop-blur-sm">
             <Sparkles className="h-4 w-4 text-teamix-orange" />
-            <span className="teamix-rainbow-text">Le hub de votre entreprise</span>
+            <span className="font-semibold text-gray-800">Plateforme entreprise · Hub central</span>
           </div>
         </div>
 
@@ -26,9 +26,8 @@ export function LandingHero() {
             <span className="teamix-rainbow-text">un seul hub.</span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg font-medium text-gray-600 md:text-xl">
-            Reporting, projets, congés, coffre-fort et les modules à venir — Teamix
-            centralise vos opérations dans une plateforme unique, évolutive et
-            sécurisée.
+            Reporting, projets, congés, coffre-fort : une plateforme unique pour
+            piloter, collaborer et sécuriser vos opérations au quotidien.
           </p>
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
@@ -57,13 +56,14 @@ export function LandingHero() {
               <div className="absolute -right-3 -top-3 h-16 w-16 rounded-2xl bento-teal opacity-80 blur-sm" />
               <div className="absolute -bottom-3 -left-3 h-14 w-14 rounded-full bento-orange opacity-70 blur-sm" />
               <TeamixLogo variant="with-name" width={260} height={82} priority className="relative z-10" />
-              <div className="relative z-10 mt-6 flex gap-2">
-                {["#0dbfb8", "#2196f3", "#ff8c42", "#4caf50"].map((c) => (
+              <div className="relative z-10 mt-6 flex flex-wrap justify-center gap-2">
+                {["SaaS B2B", "Multi-tenant", "Permissions fines", "Évolutif"].map((tag) => (
                   <span
-                    key={c}
-                    className="h-3 w-8 rounded-full shadow-md"
-                    style={{ backgroundColor: c }}
-                  />
+                    key={tag}
+                    className="rounded-full border border-gray-200 bg-white/90 px-3 py-1 text-xs font-semibold text-gray-600"
+                  >
+                    {tag}
+                  </span>
                 ))}
               </div>
             </div>

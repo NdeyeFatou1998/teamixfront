@@ -102,25 +102,23 @@ export function LoginForm() {
         </Link>
         <div className="relative z-10">
           <h2 className="text-4xl font-black leading-tight text-white">
-            Un hub.
+            Le hub qui structure
             <br />
-            Une ambition :
-            <br />
-            <span className="text-white/90">faire avancer vos équipes.</span>
+            la performance de vos équipes.
           </h2>
-          <div className="mt-10 flex gap-3">
+          <div className="mt-10 grid grid-cols-2 gap-3">
             {[
-              { c: "#0dbfb8", l: "Collab" },
-              { c: "#2196f3", l: "Projets" },
-              { c: "#ff8c42", l: "RH" },
-              { c: "#4caf50", l: "Vault" },
-            ].map(({ c, l }) => (
+              { title: "Reporting", desc: "Visibilité managériale" },
+              { title: "Projets", desc: "Exécution coordonnée" },
+              { title: "RH", desc: "Organisation & talents" },
+              { title: "Vault", desc: "Données sensibles" },
+            ].map(({ title, desc }) => (
               <div
-                key={l}
-                className="rounded-2xl bg-white/20 px-4 py-3 backdrop-blur-md"
+                key={title}
+                className="rounded-2xl border border-white/20 bg-white/15 px-4 py-3 backdrop-blur-md"
               >
-                <span className="block h-2 w-8 rounded-full" style={{ backgroundColor: c }} />
-                <span className="mt-2 block text-xs font-bold text-white">{l}</span>
+                <span className="block text-sm font-bold text-white">{title}</span>
+                <span className="mt-1 block text-xs text-white/75">{desc}</span>
               </div>
             ))}
           </div>
@@ -176,7 +174,7 @@ export function LoginForm() {
           </form>
 
           <p className="mt-6 text-center text-sm">
-            <Link href="/" className="font-bold teamix-rainbow-text hover:opacity-80">
+            <Link href="/" className="font-semibold text-teamix-teal hover:underline">
               ← Retour à l&apos;accueil
             </Link>
           </p>

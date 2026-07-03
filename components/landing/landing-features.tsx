@@ -63,15 +63,15 @@ export function LandingFeatures() {
     <section id="fonctionnalites" className="relative px-6 py-24 md:py-32">
       <div className="mx-auto max-w-6xl">
         <div id="experience" className="mb-14 text-center">
-          <p className="text-sm font-black uppercase tracking-[0.2em] teamix-rainbow-text">
+          <p className="text-sm font-black uppercase tracking-[0.2em] text-teamix-teal">
             Modules Teamix
           </p>
           <h2 className="mt-3 text-4xl font-black text-gray-900 md:text-5xl">
-            Chaque module, un levier concret
+            Des outils métier, une expérience unifiée
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-lg text-gray-600">
-            Des outils qui s&apos;enrichissent au fil de votre croissance, réunis
-            dans une expérience claire et connectée.
+            Chaque fonctionnalité s&apos;intègre naturellement à votre hub pour
+            accompagner la croissance de votre organisation.
           </p>
         </div>
 

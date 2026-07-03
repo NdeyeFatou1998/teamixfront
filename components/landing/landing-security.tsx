@@ -3,22 +3,25 @@ import { Lock, Server, ShieldCheck } from "lucide-react";
 const points = [
   {
     icon: ShieldCheck,
-    title: "Isolation totale",
-    description: "Zero fuite entre entreprises. Chaque tenant est un univers.",
+    title: "Isolation multi-tenant",
+    description:
+      "Données strictement séparées par entreprise, sans exposition croisée entre clients.",
     accent: "border-teamix-teal bg-teamix-teal-light/50",
     iconBg: "bento-teal text-white",
   },
   {
     icon: Lock,
-    title: "Permissions fines",
-    description: "Rôle + grants custom. Chaque clic est contrôlé.",
+    title: "Gouvernance des accès",
+    description:
+      "Rôles, permissions et exceptions configurables — chaque action est tracée et contrôlée.",
     accent: "border-teamix-blue bg-teamix-blue-light/50",
     iconBg: "bento-blue text-white",
   },
   {
     icon: Server,
-    title: "Infra robuste",
-    description: "JWT, bcrypt, validation stricte, cloud scalable.",
+    title: "Infrastructure fiable",
+    description:
+      "Authentification robuste, chiffrement des secrets et hébergement cloud scalable.",
     accent: "border-teamix-green bg-teamix-green-light/50",
     iconBg: "bento-green text-white",
   },
@@ -35,14 +38,14 @@ export function LandingSecurity() {
       <div className="relative mx-auto max-w-6xl">
         <div className="mb-14 text-center">
           <p className="text-sm font-black uppercase tracking-[0.2em] text-teamix-teal">
-            Sécurité
+            Sécurité & conformité
           </p>
           <h2 className="mt-3 text-4xl font-black md:text-5xl">
-            Fort comme vos{" "}
-            <span className="teamix-rainbow-text">ambitions</span>
+            Une protection alignée sur vos enjeux
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-lg text-white/70">
-            Teamix protège vos données avec la même exigence que votre croissance.
+            Teamix applique les mêmes standards de rigueur à la sécurité qu&apos;à
+            l&apos;expérience produit.
           </p>
         </div>
 
@@ -63,10 +66,10 @@ export function LandingSecurity() {
 
         <div className="mt-12 flex flex-wrap justify-center gap-3">
           {[
-            { label: "Teal · Auth", color: "bg-teamix-teal" },
-            { label: "Blue · API", color: "bg-teamix-blue" },
-            { label: "Orange · Audit", color: "bg-teamix-orange" },
-            { label: "Green · Vault", color: "bg-teamix-green" },
+            { label: "Authentification", color: "bg-teamix-teal" },
+            { label: "API sécurisée", color: "bg-teamix-blue" },
+            { label: "Traçabilité", color: "bg-teamix-orange" },
+            { label: "Coffre-fort", color: "bg-teamix-green" },
           ].map((pill) => (
             <span
               key={pill.label}
