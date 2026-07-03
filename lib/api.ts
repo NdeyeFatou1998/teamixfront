@@ -9,11 +9,22 @@ export class ApiError extends Error {
   }
 }
 
+type ApiFetchOptions = RequestInit & {
+  token?: string;
+  skipAuthRedirect?: boolean;
+};
+
+let unauthorizedHandler: (() => void) | null = null;
+
+export function setUnauthorizedHandler(handler: () => void) {
+  unauthorizedHandler = handler;
+}
+
 export async function apiFetch<T>(
   path: string,
-  options: RequestInit & { token?: string } = {},
+  options: ApiFetchOptions = {},
 ): Promise<T> {
-  const { token, headers, ...rest } = options;
+  const { token, skipAuthRedirect, headers, ...rest } = options;
 
   const response = await fetch(`${getApiUrl()}${path}`, {
     ...rest,
@@ -25,6 +36,10 @@ export async function apiFetch<T>(
   });
 
   if (!response.ok) {
+    if (response.status === 401 && !skipAuthRedirect) {
+      unauthorizedHandler?.();
+    }
+
     let message = "Une erreur est survenue";
     try {
       const data = (await response.json()) as { message?: string | string[] };
@@ -37,5 +52,13 @@ export async function apiFetch<T>(
     throw new ApiError(message, response.status);
   }
 
+  if (response.status === 204) {
+    return undefined as T;
+  }
+
   return response.json() as Promise<T>;
+}
+
+export function getAuthHeaders(token: string | null) {
+  return token ? { Authorization: `Bearer ${token}` } : {};
 }

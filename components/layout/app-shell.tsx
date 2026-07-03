@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 const appLinks = [
   { href: "/app/dashboard", label: "Tableau de bord", icon: LayoutDashboard },
   { href: "/app/departments", label: "Départements", icon: FolderTree },
+  { href: "/app/employees", label: "Employés", icon: Users },
 ];
 
 const platformLinks = [

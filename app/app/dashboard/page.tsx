@@ -53,17 +53,26 @@ export default function AppDashboardPage() {
           <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-400/10">
             <Users className="h-5 w-5 text-emerald-400" />
           </div>
-          <CardTitle>Phase 1</CardTitle>
-          <CardDescription>Modules à venir : projets, congés, coffre-fort</CardDescription>
+          <CardTitle>Phase 2</CardTitle>
+          <CardDescription>Départements et employés disponibles</CardDescription>
         </Card>
       </div>
 
       <Card>
         <CardTitle className="mb-2">Prochaines étapes</CardTitle>
         <ul className="list-inside list-disc space-y-1 text-sm text-slate-400">
-          <li>Gestion des départements et employés</li>
-          <li>Projets et reporting</li>
-          <li>Demandes de congés</li>
+          <li>
+            <a href="/app/departments" className="text-sky-400 hover:underline">
+              Gérer les départements
+            </a>
+          </li>
+          <li>
+            <a href="/app/employees" className="text-sky-400 hover:underline">
+              Gérer les employés
+            </a>
+          </li>
+          <li>Projets et reporting (bientôt)</li>
+          <li>Demandes de congés (bientôt)</li>
         </ul>
       </Card>
     </div>

@@ -16,7 +16,7 @@ import { useAuthStore } from "@/store/auth-store";
 
 const schema = z.object({
   email: z.string().email("Email invalide"),
-  password: z.string().min(6, "Minimum 6 caractères"),
+  password: z.string().min(8, "Minimum 8 caractères"),
 });
 
 type FormData = z.infer<typeof schema>;
@@ -81,7 +81,10 @@ export function LoginForm() {
 
       if (result.user.isPlatformSuperAdmin) {
         router.push("/platform/dashboard");
+        return;
       }
+
+      setError("Aucune organisation associée à ce compte. Contactez votre administrateur.");
     } catch (e) {
       setError(e instanceof Error ? e.message : "Connexion impossible");
     }

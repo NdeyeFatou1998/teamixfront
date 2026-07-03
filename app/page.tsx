@@ -1,5 +1,6 @@
 import { TeamixLogo } from "@/components/brand/teamix-logo";
 import Link from "next/link";
+import { getApiUrl } from "@/lib/utils";
 
 type HealthResponse = {
   status: string;
@@ -9,12 +10,8 @@ type HealthResponse = {
 export const dynamic = "force-dynamic";
 
 async function getApiHealth(): Promise<{ ok: boolean; data?: HealthResponse; error?: string }> {
-  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-  if (!apiUrl) return { ok: false, error: "NEXT_PUBLIC_API_URL non configurée" };
-
   try {
-    const base = apiUrl.replace(/\/$/, "");
-    const response = await fetch(`${base}/v1/health`, { next: { revalidate: 30 } });
+    const response = await fetch(`${getApiUrl()}/health`, { next: { revalidate: 30 } });
     if (!response.ok) return { ok: false, error: `HTTP ${response.status}` };
     const data = (await response.json()) as HealthResponse;
     return { ok: true, data };

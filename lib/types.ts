@@ -27,6 +27,35 @@ export type Organization = {
   _count?: { members: number };
 };
 
+export type Employee = {
+  id: string;
+  jobTitle: string | null;
+  employeeNumber: string | null;
+  createdAt: string;
+  department: { id: string; name: string } | null;
+  manager: {
+    id: string;
+    member: { user: { email: string } };
+  } | null;
+  member: {
+    id: string;
+    user: { id: string; email: string };
+    role: { name: string } | null;
+  };
+};
+
+export type AvailableMember = {
+  id: string;
+  user: { email: string };
+  role: { name: string } | null;
+};
+
+export type MeResponse = AuthUser & {
+  memberships: Membership[];
+  organizationId: string | null;
+  permissions: string[];
+};
+
 export type Department = {
   id: string;
   name: string;
