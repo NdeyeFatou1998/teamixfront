@@ -4,25 +4,31 @@ import { Button } from "@/components/ui/button";
 
 export function LandingHeader() {
   return (
-    <header className="sticky top-0 z-50 border-b border-gray-100 bg-white/90 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-        <Link href="/" className="flex items-center gap-3">
-          <TeamixLogo variant="light-bg" width={40} height={40} priority />
-          <span className="text-xl font-bold tracking-wide text-gray-900">TEAMIX</span>
+    <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4">
+      <div className="mx-auto flex h-14 max-w-6xl items-center justify-between rounded-2xl bento-glass px-5 shadow-lg shadow-teamix-blue/10">
+        <Link href="/" className="flex items-center gap-2.5">
+          <TeamixLogo variant="light-bg" width={36} height={36} priority />
+          <span className="text-lg font-black tracking-widest text-gray-900">TEAMIX</span>
         </Link>
-        <nav className="hidden items-center gap-8 text-sm font-medium text-gray-600 md:flex">
-          <a href="#fonctionnalites" className="transition hover:text-teamix-teal">
-            Fonctionnalités
-          </a>
-          <a href="#securite" className="transition hover:text-teamix-blue">
-            Sécurité
-          </a>
-          <a href="#contact" className="transition hover:text-teamix-orange">
-            Contact
-          </a>
+        <nav className="hidden items-center gap-1 md:flex">
+          {[
+            { href: "#fonctionnalites", label: "Modules", color: "hover:bg-teamix-teal/15 hover:text-teamix-teal" },
+            { href: "#experience", label: "Expérience", color: "hover:bg-teamix-blue/15 hover:text-teamix-blue" },
+            { href: "#securite", label: "Sécurité", color: "hover:bg-teamix-green/15 hover:text-teamix-green" },
+          ].map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              className={`rounded-xl px-4 py-2 text-sm font-semibold text-gray-600 transition ${item.color}`}
+            >
+              {item.label}
+            </a>
+          ))}
         </nav>
         <Link href="/login">
-          <Button className="h-9 px-5 text-sm">Se connecter</Button>
+          <Button className="teamix-rainbow-bg h-9 border-0 px-5 text-sm shadow-lg shadow-teamix-orange/20">
+            Se connecter
+          </Button>
         </Link>
       </div>
     </header>

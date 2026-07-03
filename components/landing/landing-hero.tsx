@@ -1,77 +1,95 @@
 import Link from "next/link";
-import { ArrowRight, Building2, Shield } from "lucide-react";
+import { ArrowRight, Sparkles, Zap } from "lucide-react";
 import { TeamixLogo } from "@/components/brand/teamix-logo";
 import { Button } from "@/components/ui/button";
 
 export function LandingHero() {
   return (
-    <section className="teamix-gradient-soft relative overflow-hidden px-6 pb-20 pt-16 md:pb-28 md:pt-24">
-      <div className="pointer-events-none absolute -left-20 top-10 h-64 w-64 rounded-full bg-teamix-teal/10 blur-3xl" />
-      <div className="pointer-events-none absolute -right-20 bottom-10 h-64 w-64 rounded-full bg-teamix-blue/10 blur-3xl" />
+    <section className="teamix-mesh relative min-h-screen overflow-hidden px-6 pb-24 pt-32">
+      {/* Floating orbs */}
+      <div className="pointer-events-none absolute left-[8%] top-[18%] h-32 w-32 rounded-full bg-teamix-teal/50 blur-2xl orb-float-a" />
+      <div className="pointer-events-none absolute right-[12%] top-[28%] h-40 w-40 rounded-full bg-teamix-blue/45 blur-2xl orb-float-b" />
+      <div className="pointer-events-none absolute bottom-[20%] left-[20%] h-36 w-36 rounded-full bg-teamix-orange/40 blur-2xl orb-float-b" />
+      <div className="pointer-events-none absolute bottom-[30%] right-[18%] h-28 w-28 rounded-full bg-teamix-green/45 blur-2xl orb-float-a" />
 
-      <div className="relative mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2">
-        <div className="space-y-8">
-          <div className="inline-flex items-center gap-2 rounded-full border border-teamix-teal/20 bg-teamix-teal-light px-4 py-1.5 text-sm font-medium text-teamix-teal">
-            <span className="h-2 w-2 rounded-full bg-teamix-teal" />
-            Plateforme B2B multi-tenant
-          </div>
-
-          <div className="space-y-4">
-            <h1 className="text-4xl font-bold leading-tight tracking-tight text-gray-900 md:text-5xl lg:text-6xl">
-              Pilotez votre entreprise,{" "}
-              <span className="teamix-gradient-text">ensemble</span>
-            </h1>
-            <p className="max-w-xl text-lg leading-relaxed text-gray-600">
-              Teamix centralise le reporting, les projets, les congés et le coffre-fort
-              sécurisé de vos équipes — avec les couleurs et l&apos;énergie de votre
-              organisation.
-            </p>
-          </div>
-
-          <div className="flex flex-wrap gap-4">
-            <Link href="/login">
-              <Button className="h-12 px-8 text-base">
-                Accéder à la plateforme
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </Link>
-            <a href="#fonctionnalites">
-              <Button variant="outline" className="h-12 px-8 text-base">
-                Découvrir
-              </Button>
-            </a>
-          </div>
-
-          <div className="flex flex-wrap gap-6 pt-2 text-sm text-gray-500">
-            <span className="flex items-center gap-2">
-              <Shield className="h-4 w-4 text-teamix-teal" />
-              Données isolées par entreprise
-            </span>
-            <span className="flex items-center gap-2">
-              <Building2 className="h-4 w-4 text-teamix-blue" />
-              Départements & employés
-            </span>
+      <div className="relative mx-auto max-w-6xl">
+        <div className="mb-10 flex justify-center">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/60 bg-white/70 px-5 py-2 text-sm font-bold shadow-lg backdrop-blur-sm">
+            <Sparkles className="h-4 w-4 text-teamix-orange" />
+            <span className="teamix-rainbow-text">La plateforme qui rassemble vos équipes</span>
           </div>
         </div>
 
-        <div className="relative flex justify-center lg:justify-end">
-          <div className="relative rounded-3xl border border-gray-100 bg-white p-10 shadow-xl shadow-gray-200/60">
-            <TeamixLogo variant="with-name" width={300} height={96} priority className="mx-auto" />
-            <div className="mt-8 grid gap-3">
-              {[
-                { label: "Teal · Collaboration", color: "bg-teamix-teal", bg: "bg-teamix-teal-light" },
-                { label: "Bleu · Projets", color: "bg-teamix-blue", bg: "bg-teamix-blue-light" },
-                { label: "Orange · RH & congés", color: "bg-teamix-orange", bg: "bg-teamix-orange-light" },
-                { label: "Vert · Croissance", color: "bg-teamix-green", bg: "bg-teamix-green-light" },
-              ].map((item) => (
-                <div
-                  key={item.label}
-                  className={`flex items-center gap-3 rounded-xl px-4 py-3 ${item.bg}`}
-                >
-                  <span className={`h-3 w-3 rounded-full ${item.color}`} />
-                  <span className="text-sm font-medium text-gray-700">{item.label}</span>
-                </div>
-              ))}
+        <div className="text-center">
+          <h1 className="mx-auto max-w-4xl text-5xl font-black leading-[1.05] tracking-tight text-gray-900 md:text-7xl">
+            Une entreprise.{" "}
+            <span className="teamix-rainbow-text">Quatre énergies.</span>
+            <br />
+            Un seul hub.
+          </h1>
+          <p className="mx-auto mt-6 max-w-2xl text-lg font-medium text-gray-600 md:text-xl">
+            Reporting, projets, congés, coffre-fort — Teamix fusionne tout ce qui
+            compte, avec l&apos;identité visuelle de vos équipes.
+          </p>
+
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+            <Link href="/login">
+              <Button className="teamix-rainbow-bg h-14 rounded-2xl px-10 text-base font-bold shadow-xl shadow-teamix-teal/30 hover:scale-[1.02] hover:opacity-95">
+                Lancer Teamix
+                <ArrowRight className="h-5 w-5" />
+              </Button>
+            </Link>
+            <a href="#fonctionnalites">
+              <Button
+                variant="outline"
+                className="h-14 rounded-2xl border-2 border-gray-900/10 bg-white/80 px-10 text-base font-bold backdrop-blur-sm hover:border-teamix-blue hover:text-teamix-blue"
+              >
+                Explorer les modules
+              </Button>
+            </a>
+          </div>
+        </div>
+
+        {/* Bento showcase */}
+        <div className="relative mx-auto mt-20 max-w-5xl">
+          <div className="absolute -inset-4 teamix-rainbow-bg rounded-[2rem] opacity-20 blur-2xl" />
+          <div className="relative grid gap-4 md:grid-cols-12 md:grid-rows-2">
+            <div className="bento-glass relative flex flex-col items-center justify-center rounded-3xl p-8 shadow-xl md:col-span-5 md:row-span-2">
+              <div className="absolute -right-3 -top-3 h-16 w-16 rounded-2xl bento-teal opacity-80 blur-sm" />
+              <div className="absolute -bottom-3 -left-3 h-14 w-14 rounded-full bento-orange opacity-70 blur-sm" />
+              <TeamixLogo variant="with-name" width={260} height={82} priority className="relative z-10" />
+              <div className="relative z-10 mt-6 flex gap-2">
+                {["#0dbfb8", "#2196f3", "#ff8c42", "#4caf50"].map((c) => (
+                  <span
+                    key={c}
+                    className="h-3 w-8 rounded-full shadow-md"
+                    style={{ backgroundColor: c }}
+                  />
+                ))}
+              </div>
+            </div>
+
+            <div className="bento-teal flex flex-col justify-between rounded-3xl p-6 text-white shadow-xl md:col-span-4">
+              <Zap className="h-8 w-8 opacity-90" />
+              <div>
+                <p className="text-3xl font-black">Multi-tenant</p>
+                <p className="mt-1 text-sm text-white/80">Chaque entreprise, son univers isolé</p>
+              </div>
+            </div>
+
+            <div className="bento-blue flex flex-col justify-between rounded-3xl p-6 text-white shadow-xl md:col-span-3">
+              <p className="text-4xl font-black">∞</p>
+              <p className="text-sm font-semibold text-white/90">Organisations & équipes</p>
+            </div>
+
+            <div className="bento-orange rounded-3xl p-6 text-white shadow-xl md:col-span-3">
+              <p className="text-2xl font-black">RH</p>
+              <p className="text-sm text-white/85">Départements · Employés · Congés</p>
+            </div>
+
+            <div className="bento-green rounded-3xl p-6 text-white shadow-xl md:col-span-4">
+              <p className="text-2xl font-black">Coffre-fort sécurisé</p>
+              <p className="text-sm text-white/85">Secrets partagés avec contrôle fin</p>
             </div>
           </div>
         </div>

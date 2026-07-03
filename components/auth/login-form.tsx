@@ -92,45 +92,57 @@ export function LoginForm() {
   }
 
   return (
-    <div className="flex min-h-screen teamix-gradient-soft">
-      <div className="hidden w-1/2 flex-col justify-between bg-white p-12 lg:flex">
-        <Link href="/" className="flex items-center gap-3">
+    <div className="flex min-h-screen teamix-mesh">
+      <div className="relative hidden w-1/2 flex-col justify-between overflow-hidden p-12 lg:flex">
+        <div className="pointer-events-none absolute inset-0 teamix-rainbow-bg opacity-90" />
+        <div className="pointer-events-none absolute inset-0 bg-black/10" />
+        <Link href="/" className="relative z-10 flex items-center gap-3">
           <TeamixLogo variant="light-bg" width={48} height={48} priority />
-          <span className="text-2xl font-bold tracking-wide text-gray-900">TEAMIX</span>
+          <span className="text-2xl font-black tracking-widest text-white">TEAMIX</span>
         </Link>
-        <div>
-          <h2 className="text-3xl font-bold text-gray-900">
-            Bienvenue sur votre espace{" "}
-            <span className="teamix-gradient-text">professionnel</span>
+        <div className="relative z-10">
+          <h2 className="text-4xl font-black leading-tight text-white">
+            Quatre couleurs.
+            <br />
+            Une seule mission :
+            <br />
+            <span className="text-white/90">faire avancer vos équipes.</span>
           </h2>
-          <p className="mt-4 text-lg text-gray-600">
-            Gérez vos équipes, départements et projets avec une plateforme
-            colorée, claire et sécurisée.
-          </p>
-          <div className="mt-8 flex gap-3">
-            {["#0dbfb8", "#2196f3", "#ff8c42", "#4caf50"].map((c) => (
-              <span key={c} className="h-4 w-4 rounded-full" style={{ backgroundColor: c }} />
+          <div className="mt-10 flex gap-3">
+            {[
+              { c: "#0dbfb8", l: "Collab" },
+              { c: "#2196f3", l: "Projets" },
+              { c: "#ff8c42", l: "RH" },
+              { c: "#4caf50", l: "Vault" },
+            ].map(({ c, l }) => (
+              <div
+                key={l}
+                className="rounded-2xl bg-white/20 px-4 py-3 backdrop-blur-md"
+              >
+                <span className="block h-2 w-8 rounded-full" style={{ backgroundColor: c }} />
+                <span className="mt-2 block text-xs font-bold text-white">{l}</span>
+              </div>
             ))}
           </div>
         </div>
-        <p className="text-sm text-gray-400">© Teamix — Plateforme entreprise</p>
+        <p className="relative z-10 text-sm font-medium text-white/70">© Teamix</p>
       </div>
 
       <div className="flex flex-1 items-center justify-center p-6">
-        <Card className="w-full max-w-md border-gray-100 shadow-lg">
+        <Card className="w-full max-w-md border-0 shadow-2xl shadow-teamix-blue/15">
           <div className="mb-6 flex flex-col items-center gap-3 lg:hidden">
             <TeamixLogo variant="with-name" width={180} height={56} priority />
           </div>
           <div className="mb-6 hidden lg:block">
-            <CardTitle className="text-2xl">Connexion</CardTitle>
-            <CardDescription className="mt-1">
+            <CardTitle className="text-2xl font-black">Connexion</CardTitle>
+            <CardDescription className="mt-1 text-base">
               Accédez à votre espace Teamix
             </CardDescription>
           </div>
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             <div>
-              <label className="mb-1.5 block text-sm font-medium text-gray-700">Email</label>
+              <label className="mb-1.5 block text-sm font-bold text-gray-700">Email</label>
               <Input type="email" placeholder="vous@entreprise.com" {...register("email")} />
               {errors.email && (
                 <p className="mt-1 text-xs text-red-500">{errors.email.message}</p>
@@ -138,7 +150,7 @@ export function LoginForm() {
             </div>
 
             <div>
-              <label className="mb-1.5 block text-sm font-medium text-gray-700">Mot de passe</label>
+              <label className="mb-1.5 block text-sm font-bold text-gray-700">Mot de passe</label>
               <Input type="password" placeholder="••••••••" {...register("password")} />
               {errors.password && (
                 <p className="mt-1 text-xs text-red-500">{errors.password.message}</p>
@@ -151,7 +163,7 @@ export function LoginForm() {
               </div>
             )}
 
-            <Button type="submit" className="w-full" disabled={isSubmitting}>
+            <Button type="submit" className="w-full h-12 rounded-2xl text-base" disabled={isSubmitting}>
               {isSubmitting ? (
                 <>
                   <Loader2 className="h-4 w-4 animate-spin" />
@@ -163,8 +175,8 @@ export function LoginForm() {
             </Button>
           </form>
 
-          <p className="mt-6 text-center text-sm text-gray-500">
-            <Link href="/" className="text-teamix-teal hover:underline">
+          <p className="mt-6 text-center text-sm">
+            <Link href="/" className="font-bold teamix-rainbow-text hover:opacity-80">
               ← Retour à l&apos;accueil
             </Link>
           </p>

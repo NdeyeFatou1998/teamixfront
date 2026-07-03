@@ -1,20 +1,20 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #111827;
+  --background: #fafbff;
+  --foreground: #0f172a;
   --card: #ffffff;
-  --card-border: #e5e7eb;
+  --card-border: #e2e8f0;
   --muted: #64748b;
-  --surface: #f8fafc;
+  --surface: #f1f5f9;
   --teamix-teal: #0dbfb8;
   --teamix-blue: #2196f3;
   --teamix-orange: #ff8c42;
   --teamix-green: #4caf50;
-  --teamix-teal-light: #e6f9f8;
-  --teamix-blue-light: #e8f4fe;
-  --teamix-orange-light: #fff3eb;
-  --teamix-green-light: #edf7ed;
+  --teamix-teal-light: #ccfbf1;
+  --teamix-blue-light: #dbeafe;
+  --teamix-orange-light: #ffedd5;
+  --teamix-green-light: #dcfce7;
 }
 
 @theme inline {
@@ -45,11 +45,47 @@ body {
   border-color: var(--card-border);
 }
 
-.teamix-gradient-text {
-  background: linear-gradient(135deg, var(--teamix-teal), var(--teamix-blue));
+/* ── Mesh & gradients ── */
+.teamix-mesh {
+  background-color: #fafbff;
+  background-image:
+    radial-gradient(at 15% 15%, rgba(13, 191, 184, 0.45) 0, transparent 42%),
+    radial-gradient(at 85% 12%, rgba(33, 150, 243, 0.42) 0, transparent 40%),
+    radial-gradient(at 78% 78%, rgba(255, 140, 66, 0.4) 0, transparent 44%),
+    radial-gradient(at 12% 82%, rgba(76, 175, 80, 0.38) 0, transparent 42%),
+    radial-gradient(at 50% 50%, rgba(139, 92, 246, 0.08) 0, transparent 55%);
+}
+
+.teamix-mesh-dark {
+  background-color: #0c1222;
+  background-image:
+    radial-gradient(at 20% 20%, rgba(13, 191, 184, 0.55) 0, transparent 45%),
+    radial-gradient(at 80% 15%, rgba(33, 150, 243, 0.5) 0, transparent 42%),
+    radial-gradient(at 75% 75%, rgba(255, 140, 66, 0.45) 0, transparent 48%),
+    radial-gradient(at 15% 80%, rgba(76, 175, 80, 0.4) 0, transparent 45%);
+}
+
+.teamix-rainbow-text {
+  background: linear-gradient(
+    120deg,
+    var(--teamix-teal) 0%,
+    var(--teamix-blue) 30%,
+    var(--teamix-orange) 65%,
+    var(--teamix-green) 100%
+  );
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+.teamix-rainbow-bg {
+  background: linear-gradient(
+    135deg,
+    var(--teamix-teal) 0%,
+    var(--teamix-blue) 35%,
+    var(--teamix-orange) 68%,
+    var(--teamix-green) 100%
+  );
 }
 
 .teamix-gradient-bg {
@@ -58,12 +94,45 @@ body {
 
 .teamix-gradient-soft {
   background: linear-gradient(
-    180deg,
-    var(--teamix-teal-light) 0%,
-    #ffffff 40%,
-    var(--teamix-blue-light) 100%
+    160deg,
+    rgba(13, 191, 184, 0.12) 0%,
+    rgba(33, 150, 243, 0.1) 35%,
+    rgba(255, 140, 66, 0.1) 70%,
+    rgba(76, 175, 80, 0.12) 100%
   );
 }
+
+/* ── Bento tiles ── */
+.bento-teal {
+  background: linear-gradient(145deg, #0dbfb8 0%, #06b6d4 50%, #0891b2 100%);
+}
+.bento-blue {
+  background: linear-gradient(145deg, #2196f3 0%, #3b82f6 50%, #6366f1 100%);
+}
+.bento-orange {
+  background: linear-gradient(145deg, #ff8c42 0%, #fb923c 50%, #f97316 100%);
+}
+.bento-green {
+  background: linear-gradient(145deg, #4caf50 0%, #22c55e 50%, #16a34a 100%);
+}
+
+.bento-glass {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+/* ── Floating orbs ── */
+@keyframes float-a {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(12px, -18px) scale(1.05); }
+}
+@keyframes float-b {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-16px, 14px) scale(1.08); }
+}
+.orb-float-a { animation: float-a 7s ease-in-out infinite; }
+.orb-float-b { animation: float-b 9s ease-in-out infinite; }
 
 .teamix-select {
   display: flex;
@@ -81,5 +150,5 @@ body {
 
 .teamix-select:focus {
   border-color: var(--teamix-teal);
-  box-shadow: 0 0 0 3px rgba(13, 191, 184, 0.15);
+  box-shadow: 0 0 0 3px rgba(13, 191, 184, 0.2);
 }

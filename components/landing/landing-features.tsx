@@ -11,89 +11,95 @@ const features = [
   {
     icon: BarChart3,
     title: "Reporting",
-    description:
-      "Rapports hebdomadaires et mensuels centralisés pour vos équipes et managers.",
-    color: "text-teamix-teal",
-    bg: "bg-teamix-teal-light",
-    border: "border-teamix-teal/20",
+    description: "Rapports hebdo & mensuels, visibilité manager instantanée.",
+    bento: "bento-teal",
+    span: "md:col-span-4 md:row-span-2",
+    large: true,
   },
   {
     icon: Briefcase,
-    title: "Projets & tâches",
-    description:
-      "Affectez vos employés aux projets, suivez l'avancement et les livrables.",
-    color: "text-teamix-blue",
-    bg: "bg-teamix-blue-light",
-    border: "border-teamix-blue/20",
+    title: "Projets",
+    description: "Tâches, rôles, livrables.",
+    bento: "bento-blue",
+    span: "md:col-span-4",
+    large: false,
   },
   {
     icon: Palmtree,
-    title: "Congés & télétravail",
-    description:
-      "Demandes de congés et jours de télétravail avec circuit d'approbation.",
-    color: "text-teamix-orange",
-    bg: "bg-teamix-orange-light",
-    border: "border-teamix-orange/20",
+    title: "Congés",
+    description: "Demandes & approbations fluides.",
+    bento: "bento-orange",
+    span: "md:col-span-4",
+    large: false,
   },
   {
     icon: FolderLock,
-    title: "Coffre-fort",
-    description:
-      "Secrets et fichiers sensibles partagés avec contrôle de visibilité fin.",
-    color: "text-teamix-green",
-    bg: "bg-teamix-green-light",
-    border: "border-teamix-green/20",
+    title: "Vault",
+    description: "Secrets & fichiers sensibles.",
+    bento: "bento-green",
+    span: "md:col-span-4",
+    large: false,
   },
   {
     icon: FolderTree,
     title: "Départements",
-    description:
-      "Structurez votre organisation par équipes avec managers et hiérarchie.",
-    color: "text-teamix-blue",
-    bg: "bg-teamix-blue-light",
-    border: "border-teamix-blue/20",
+    description: "Hiérarchie & org chart.",
+    bento: "bento-blue",
+    span: "md:col-span-4",
+    large: false,
   },
   {
     icon: Users,
     title: "Employés",
-    description:
-      "Profils employés, affectations et permissions adaptées à chaque rôle.",
-    color: "text-teamix-teal",
-    bg: "bg-teamix-teal-light",
-    border: "border-teamix-teal/20",
+    description: "Profils, affectations, permissions.",
+    bento: "bento-orange",
+    span: "md:col-span-4",
+    large: false,
   },
 ];
 
 export function LandingFeatures() {
   return (
-    <section id="fonctionnalites" className="bg-white px-6 py-20 md:py-28">
+    <section id="fonctionnalites" className="relative px-6 py-24 md:py-32">
       <div className="mx-auto max-w-6xl">
-        <div className="mb-12 max-w-2xl">
-          <p className="text-sm font-semibold uppercase tracking-widest text-teamix-teal">
-            Fonctionnalités
+        <div id="experience" className="mb-14 text-center">
+          <p className="text-sm font-black uppercase tracking-[0.2em] teamix-rainbow-text">
+            Modules Teamix
           </p>
-          <h2 className="mt-2 text-3xl font-bold text-gray-900 md:text-4xl">
-            Tout ce dont votre entreprise a besoin
+          <h2 className="mt-3 text-4xl font-black text-gray-900 md:text-5xl">
+            Chaque couleur, un super-pouvoir
           </h2>
-          <p className="mt-4 text-lg text-gray-600">
-            Teamix évolue module par module. Les fondations sont déjà en place :
-            authentification, organisations, départements et employés.
+          <p className="mx-auto mt-4 max-w-xl text-lg text-gray-600">
+            Comme votre logo, Teamix unit des forces différentes en un seul écosystème.
           </p>
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {features.map(({ icon: Icon, title, description, color, bg, border }) => (
+        <div className="grid auto-rows-[minmax(140px,auto)] gap-4 md:grid-cols-12">
+          {features.map(({ icon: Icon, title, description, bento, span, large }) => (
             <div
               key={title}
-              className={`group rounded-2xl border ${border} bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md`}
+              className={`group relative overflow-hidden rounded-3xl p-6 text-white shadow-xl transition hover:scale-[1.02] hover:shadow-2xl ${bento} ${span}`}
             >
-              <div
-                className={`mb-4 flex h-11 w-11 items-center justify-center rounded-xl ${bg} ${color}`}
-              >
-                <Icon className="h-5 w-5" />
+              <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-white/15 blur-xl transition group-hover:bg-white/25" />
+              <Icon className={`relative z-10 ${large ? "h-10 w-10" : "h-7 w-7"} opacity-90`} />
+              <div className={`relative z-10 ${large ? "mt-8" : "mt-4"}`}>
+                <h3 className={`font-black ${large ? "text-3xl" : "text-xl"}`}>{title}</h3>
+                <p className={`mt-2 text-white/85 ${large ? "text-base max-w-xs" : "text-sm"}`}>
+                  {description}
+                </p>
               </div>
-              <h3 className="text-lg font-semibold text-gray-900">{title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-gray-600">{description}</p>
+              {large && (
+                <div className="relative z-10 mt-8 flex gap-2">
+                  {["Reporting", "KPIs", "Exports"].map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-full bg-white/20 px-3 py-1 text-xs font-bold backdrop-blur-sm"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              )}
             </div>
           ))}
         </div>
