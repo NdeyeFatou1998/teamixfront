@@ -102,9 +102,9 @@ export function LoginForm() {
         </Link>
         <div className="relative z-10">
           <h2 className="text-4xl font-black leading-tight text-white">
-            Quatre couleurs.
+            Un hub.
             <br />
-            Une seule mission :
+            Une ambition :
             <br />
             <span className="text-white/90">faire avancer vos équipes.</span>
           </h2>

@@ -16,20 +16,19 @@ export function LandingHero() {
         <div className="mb-10 flex justify-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-white/60 bg-white/70 px-5 py-2 text-sm font-bold shadow-lg backdrop-blur-sm">
             <Sparkles className="h-4 w-4 text-teamix-orange" />
-            <span className="teamix-rainbow-text">La plateforme qui rassemble vos équipes</span>
+            <span className="teamix-rainbow-text">Le hub de votre entreprise</span>
           </div>
         </div>
 
         <div className="text-center">
           <h1 className="mx-auto max-w-4xl text-5xl font-black leading-[1.05] tracking-tight text-gray-900 md:text-7xl">
-            Une entreprise.{" "}
-            <span className="teamix-rainbow-text">Quatre énergies.</span>
-            <br />
-            Un seul hub.
+            Tout votre métier,{" "}
+            <span className="teamix-rainbow-text">un seul hub.</span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg font-medium text-gray-600 md:text-xl">
-            Reporting, projets, congés, coffre-fort — Teamix fusionne tout ce qui
-            compte, avec l&apos;identité visuelle de vos équipes.
+            Reporting, projets, congés, coffre-fort et les modules à venir — Teamix
+            centralise vos opérations dans une plateforme unique, évolutive et
+            sécurisée.
           </p>
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">

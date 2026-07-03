@@ -67,10 +67,11 @@ export function LandingFeatures() {
             Modules Teamix
           </p>
           <h2 className="mt-3 text-4xl font-black text-gray-900 md:text-5xl">
-            Chaque couleur, un super-pouvoir
+            Chaque module, un levier concret
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-lg text-gray-600">
-            Comme votre logo, Teamix unit des forces différentes en un seul écosystème.
+            Des outils qui s&apos;enrichissent au fil de votre croissance, réunis
+            dans une expérience claire et connectée.
           </p>
         </div>
 
