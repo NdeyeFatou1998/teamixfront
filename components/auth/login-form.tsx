@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import Link from "next/link";
 import { TeamixLogo } from "@/components/brand/teamix-logo";
 import { Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -91,54 +92,84 @@ export function LoginForm() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 p-4">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-sky-900/20 via-transparent to-transparent" />
-      <Card className="relative w-full max-w-md">
-        <div className="mb-6 flex flex-col items-center gap-3">
-          <TeamixLogo variant="with-name" width={180} height={56} priority className="rounded-xl" />
-          <div className="text-center">
-            <CardTitle>Connexion Teamix</CardTitle>
-            <CardDescription className="mt-1">
-              Plateforme entreprise sécurisée
-            </CardDescription>
+    <div className="flex min-h-screen teamix-gradient-soft">
+      <div className="hidden w-1/2 flex-col justify-between bg-white p-12 lg:flex">
+        <Link href="/" className="flex items-center gap-3">
+          <TeamixLogo variant="light-bg" width={48} height={48} priority />
+          <span className="text-2xl font-bold tracking-wide text-gray-900">TEAMIX</span>
+        </Link>
+        <div>
+          <h2 className="text-3xl font-bold text-gray-900">
+            Bienvenue sur votre espace{" "}
+            <span className="teamix-gradient-text">professionnel</span>
+          </h2>
+          <p className="mt-4 text-lg text-gray-600">
+            Gérez vos équipes, départements et projets avec une plateforme
+            colorée, claire et sécurisée.
+          </p>
+          <div className="mt-8 flex gap-3">
+            {["#0dbfb8", "#2196f3", "#ff8c42", "#4caf50"].map((c) => (
+              <span key={c} className="h-4 w-4 rounded-full" style={{ backgroundColor: c }} />
+            ))}
           </div>
         </div>
+        <p className="text-sm text-gray-400">© Teamix — Plateforme entreprise</p>
+      </div>
 
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-          <div>
-            <label className="mb-1.5 block text-sm text-slate-300">Email</label>
-            <Input type="email" placeholder="vous@entreprise.com" {...register("email")} />
-            {errors.email && (
-              <p className="mt-1 text-xs text-red-400">{errors.email.message}</p>
-            )}
+      <div className="flex flex-1 items-center justify-center p-6">
+        <Card className="w-full max-w-md border-gray-100 shadow-lg">
+          <div className="mb-6 flex flex-col items-center gap-3 lg:hidden">
+            <TeamixLogo variant="with-name" width={180} height={56} priority />
+          </div>
+          <div className="mb-6 hidden lg:block">
+            <CardTitle className="text-2xl">Connexion</CardTitle>
+            <CardDescription className="mt-1">
+              Accédez à votre espace Teamix
+            </CardDescription>
           </div>
 
-          <div>
-            <label className="mb-1.5 block text-sm text-slate-300">Mot de passe</label>
-            <Input type="password" placeholder="••••••••" {...register("password")} />
-            {errors.password && (
-              <p className="mt-1 text-xs text-red-400">{errors.password.message}</p>
-            )}
-          </div>
-
-          {error && (
-            <div className="rounded-lg border border-red-500/30 bg-red-500/10 px-3 py-2 text-sm text-red-300">
-              {error}
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+            <div>
+              <label className="mb-1.5 block text-sm font-medium text-gray-700">Email</label>
+              <Input type="email" placeholder="vous@entreprise.com" {...register("email")} />
+              {errors.email && (
+                <p className="mt-1 text-xs text-red-500">{errors.email.message}</p>
+              )}
             </div>
-          )}
 
-          <Button type="submit" className="w-full" disabled={isSubmitting}>
-            {isSubmitting ? (
-              <>
-                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                Connexion...
-              </>
-            ) : (
-              "Se connecter"
+            <div>
+              <label className="mb-1.5 block text-sm font-medium text-gray-700">Mot de passe</label>
+              <Input type="password" placeholder="••••••••" {...register("password")} />
+              {errors.password && (
+                <p className="mt-1 text-xs text-red-500">{errors.password.message}</p>
+              )}
+            </div>
+
+            {error && (
+              <div className="rounded-xl border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-600">
+                {error}
+              </div>
             )}
-          </Button>
-        </form>
-      </Card>
+
+            <Button type="submit" className="w-full" disabled={isSubmitting}>
+              {isSubmitting ? (
+                <>
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                  Connexion...
+                </>
+              ) : (
+                "Se connecter"
+              )}
+            </Button>
+          </form>
+
+          <p className="mt-6 text-center text-sm text-gray-500">
+            <Link href="/" className="text-teamix-teal hover:underline">
+              ← Retour à l&apos;accueil
+            </Link>
+          </p>
+        </Card>
+      </div>
     </div>
   );
 }

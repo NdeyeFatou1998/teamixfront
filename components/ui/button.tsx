@@ -9,13 +9,13 @@ export const Button = forwardRef<
     <button
       ref={ref}
       className={cn(
-        "inline-flex h-10 items-center justify-center gap-2 rounded-lg px-4 text-sm font-medium transition disabled:opacity-50",
+        "inline-flex h-10 items-center justify-center gap-2 rounded-xl px-4 text-sm font-semibold transition disabled:opacity-50",
         variant === "primary" &&
-          "bg-sky-400 text-slate-950 hover:bg-sky-300",
+          "teamix-gradient-bg text-white shadow-md shadow-teamix-teal/25 hover:opacity-90",
         variant === "ghost" &&
-          "text-slate-300 hover:bg-slate-800 hover:text-white",
+          "text-gray-600 hover:bg-gray-100 hover:text-gray-900",
         variant === "outline" &&
-          "border border-slate-700 text-slate-200 hover:bg-slate-900",
+          "border border-gray-200 bg-white text-gray-700 hover:border-teamix-teal hover:text-teamix-teal",
         className,
       )}
       {...props}

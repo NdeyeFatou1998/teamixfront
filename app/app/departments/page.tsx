@@ -48,8 +48,8 @@ export default function DepartmentsPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-white">Départements</h1>
-          <p className="text-slate-400">Structurez votre organisation par équipes</p>
+          <h1 className="text-2xl font-bold text-gray-900">Départements</h1>
+          <p className="text-gray-600">Structurez votre organisation par équipes</p>
         </div>
         {canCreate && (
           <Button onClick={() => setShowForm(!showForm)}>
@@ -69,7 +69,7 @@ export default function DepartmentsPage() {
             className="space-y-4"
           >
             <div>
-              <label className="mb-1 block text-sm text-slate-300">Nom</label>
+              <label className="mb-1 block text-sm font-medium text-gray-700">Nom</label>
               <Input
                 value={name}
                 onChange={(e) => setName(e.target.value)}
@@ -78,14 +78,14 @@ export default function DepartmentsPage() {
               />
             </div>
             <div>
-              <label className="mb-1 block text-sm text-slate-300">Description</label>
+              <label className="mb-1 block text-sm font-medium text-gray-700">Description</label>
               <Input
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 placeholder="Optionnel"
               />
             </div>
-            {error && <p className="text-sm text-red-400">{error}</p>}
+            {error && <p className="text-sm text-red-500">{error}</p>}
             <div className="flex gap-2">
               <Button type="submit" disabled={mutation.isPending}>
                 {mutation.isPending ? "Création..." : "Créer"}
@@ -99,11 +99,11 @@ export default function DepartmentsPage() {
       )}
 
       <div className="grid gap-3">
-        {isLoading && <p className="text-slate-400">Chargement...</p>}
+        {isLoading && <p className="text-gray-500">Chargement...</p>}
         {departments?.map((dept) => (
           <Card key={dept.id} className="flex items-start gap-4">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-indigo-400/10">
-              <FolderTree className="h-5 w-5 text-indigo-400" />
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-teamix-blue-light">
+              <FolderTree className="h-5 w-5 text-teamix-blue" />
             </div>
             <div>
               <CardTitle className="text-base">{dept.name}</CardTitle>

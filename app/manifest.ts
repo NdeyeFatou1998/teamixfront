@@ -7,8 +7,8 @@ export default function manifest(): MetadataRoute.Manifest {
     description: "Plateforme entreprise B2B multi-tenant",
     start_url: "/",
     display: "standalone",
-    background_color: "#020617",
-    theme_color: "#38bdf8",
+    background_color: "#ffffff",
+    theme_color: "#0dbfb8",
     icons: [
       {
         src: "/icon.png",

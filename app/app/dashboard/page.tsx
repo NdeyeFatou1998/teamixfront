@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
 import { Building2, Shield, Users } from "lucide-react";
 import { Card, CardDescription, CardTitle } from "@/components/ui/card";
@@ -26,32 +27,32 @@ export default function AppDashboardPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-white">Tableau de bord</h1>
-        <p className="text-slate-400">
+        <h1 className="text-2xl font-bold text-gray-900">Tableau de bord</h1>
+        <p className="text-gray-600">
           Bienvenue{user?.email ? `, ${user.email.split("@")[0]}` : ""}
         </p>
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         <Card>
-          <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-sky-400/10">
-            <Building2 className="h-5 w-5 text-sky-400" />
+          <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-teamix-teal-light">
+            <Building2 className="h-5 w-5 text-teamix-teal" />
           </div>
           <CardTitle>{org?.name ?? "—"}</CardTitle>
           <CardDescription>Organisation active</CardDescription>
         </Card>
 
         <Card>
-          <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-400/10">
-            <Shield className="h-5 w-5 text-indigo-400" />
+          <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-teamix-blue-light">
+            <Shield className="h-5 w-5 text-teamix-blue" />
           </div>
           <CardTitle>{permissions.length}</CardTitle>
           <CardDescription>Permissions actives</CardDescription>
         </Card>
 
         <Card>
-          <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-400/10">
-            <Users className="h-5 w-5 text-emerald-400" />
+          <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-teamix-orange-light">
+            <Users className="h-5 w-5 text-teamix-orange" />
           </div>
           <CardTitle>Phase 2</CardTitle>
           <CardDescription>Départements et employés disponibles</CardDescription>
@@ -59,17 +60,17 @@ export default function AppDashboardPage() {
       </div>
 
       <Card>
-        <CardTitle className="mb-2">Prochaines étapes</CardTitle>
-        <ul className="list-inside list-disc space-y-1 text-sm text-slate-400">
+        <CardTitle className="mb-2">Accès rapide</CardTitle>
+        <ul className="list-inside list-disc space-y-1 text-sm text-gray-600">
           <li>
-            <a href="/app/departments" className="text-sky-400 hover:underline">
+            <Link href="/app/departments" className="text-teamix-teal hover:underline">
               Gérer les départements
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/app/employees" className="text-sky-400 hover:underline">
+            <Link href="/app/employees" className="text-teamix-blue hover:underline">
               Gérer les employés
-            </a>
+            </Link>
           </li>
           <li>Projets et reporting (bientôt)</li>
           <li>Demandes de congés (bientôt)</li>

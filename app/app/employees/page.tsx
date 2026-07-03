@@ -79,8 +79,8 @@ export default function EmployeesPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-white">Employés</h1>
-          <p className="text-slate-400">Gérez les profils et affectations de votre équipe</p>
+          <h1 className="text-2xl font-bold text-gray-900">Employés</h1>
+          <p className="text-gray-600">Gérez les profils et affectations de votre équipe</p>
         </div>
         {canCreate && (
           <Button onClick={() => setShowForm(!showForm)}>
@@ -119,11 +119,11 @@ export default function EmployeesPage() {
             {mode === "new" ? (
               <>
                 <div>
-                  <label className="mb-1 block text-sm text-slate-300">Email</label>
+                  <label className="mb-1 block text-sm font-medium text-gray-700">Email</label>
                   <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
                 </div>
                 <div>
-                  <label className="mb-1 block text-sm text-slate-300">Mot de passe</label>
+                  <label className="mb-1 block text-sm font-medium text-gray-700">Mot de passe</label>
                   <Input
                     type="password"
                     value={password}
@@ -135,12 +135,12 @@ export default function EmployeesPage() {
               </>
             ) : (
               <div>
-                <label className="mb-1 block text-sm text-slate-300">Membre</label>
+                <label className="mb-1 block text-sm font-medium text-gray-700">Membre</label>
                 <select
                   value={memberId}
                   onChange={(e) => setMemberId(e.target.value)}
                   required
-                  className="flex h-10 w-full rounded-lg border border-slate-700 bg-slate-900/80 px-3 text-sm text-slate-100 outline-none focus:border-sky-400"
+                  className="teamix-select"
                 >
                   <option value="">Sélectionner...</option>
                   {availableMembers?.map((m) => (
@@ -153,11 +153,11 @@ export default function EmployeesPage() {
             )}
 
             <div>
-              <label className="mb-1 block text-sm text-slate-300">Département</label>
+              <label className="mb-1 block text-sm font-medium text-gray-700">Département</label>
               <select
                 value={departmentId}
                 onChange={(e) => setDepartmentId(e.target.value)}
-                className="flex h-10 w-full rounded-lg border border-slate-700 bg-slate-900/80 px-3 text-sm text-slate-100 outline-none focus:border-sky-400"
+                className="teamix-select"
               >
                 <option value="">Aucun</option>
                 {departments?.map((d) => (
@@ -170,11 +170,11 @@ export default function EmployeesPage() {
 
             <div className="grid gap-4 sm:grid-cols-2">
               <div>
-                <label className="mb-1 block text-sm text-slate-300">Poste</label>
+                <label className="mb-1 block text-sm font-medium text-gray-700">Poste</label>
                 <Input value={jobTitle} onChange={(e) => setJobTitle(e.target.value)} placeholder="Développeur" />
               </div>
               <div>
-                <label className="mb-1 block text-sm text-slate-300">Matricule</label>
+                <label className="mb-1 block text-sm font-medium text-gray-700">Matricule</label>
                 <Input
                   value={employeeNumber}
                   onChange={(e) => setEmployeeNumber(e.target.value)}
@@ -202,11 +202,11 @@ export default function EmployeesPage() {
       )}
 
       <div className="grid gap-3">
-        {isLoading && <p className="text-slate-400">Chargement...</p>}
+        {isLoading && <p className="text-gray-600">Chargement...</p>}
         {employees?.map((emp) => (
           <Card key={emp.id} className="flex items-start gap-4">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-emerald-400/10">
-              <Users className="h-5 w-5 text-emerald-400" />
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-teamix-green-light">
+              <Users className="h-5 w-5 text-teamix-green" />
             </div>
             <div>
               <CardTitle className="text-base">{emp.member.user.email}</CardTitle>
@@ -216,7 +216,7 @@ export default function EmployeesPage() {
                 {emp.employeeNumber ? ` · ${emp.employeeNumber}` : ""}
               </CardDescription>
               {emp.manager && (
-                <p className="mt-1 text-xs text-slate-500">
+                <p className="mt-1 text-xs text-gray-500">
                   Manager : {emp.manager.member.user.email}
                 </p>
               )}

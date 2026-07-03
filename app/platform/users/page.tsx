@@ -43,8 +43,8 @@ export default function PlatformUsersPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-white">Utilisateurs</h1>
-        <p className="text-slate-400">Inviter un utilisateur dans une organisation</p>
+        <h1 className="text-2xl font-bold text-gray-900">Utilisateurs</h1>
+        <p className="text-gray-600">Inviter un utilisateur dans une organisation</p>
       </div>
 
       <Card className="max-w-lg">
@@ -58,12 +58,12 @@ export default function PlatformUsersPage() {
           className="space-y-4"
         >
           <div>
-            <label className="mb-1 block text-sm text-slate-300">Organisation</label>
+            <label className="mb-1 block text-sm font-medium text-gray-700">Organisation</label>
             <select
               value={organizationId}
               onChange={(e) => setOrganizationId(e.target.value)}
               required
-              className="flex h-10 w-full rounded-lg border border-slate-700 bg-slate-900/80 px-3 text-sm text-slate-100 outline-none focus:border-sky-400"
+              className="teamix-select"
             >
               <option value="">Sélectionner...</option>
               {orgs?.map((org) => (
@@ -74,15 +74,15 @@ export default function PlatformUsersPage() {
             </select>
           </div>
           <div>
-            <label className="mb-1 block text-sm text-slate-300">Rôle</label>
+            <label className="mb-1 block text-sm font-medium text-gray-700">Rôle</label>
             <Input value={roleName} onChange={(e) => setRoleName(e.target.value)} required />
           </div>
           <div>
-            <label className="mb-1 block text-sm text-slate-300">Email</label>
+            <label className="mb-1 block text-sm font-medium text-gray-700">Email</label>
             <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
           </div>
           <div>
-            <label className="mb-1 block text-sm text-slate-300">Mot de passe</label>
+            <label className="mb-1 block text-sm font-medium text-gray-700">Mot de passe</label>
             <Input
               type="password"
               value={password}
@@ -92,7 +92,7 @@ export default function PlatformUsersPage() {
             />
           </div>
           {message && (
-            <CardDescription className={mutation.isError ? "text-red-400" : "text-emerald-400"}>
+            <CardDescription className={mutation.isError ? "text-red-500" : "text-emerald-600"}>
               {message}
             </CardDescription>
           )}

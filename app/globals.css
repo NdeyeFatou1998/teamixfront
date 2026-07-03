@@ -1,14 +1,20 @@
 @import "tailwindcss";
 
 :root {
-  --background: #020617;
-  --foreground: #f8fafc;
-  --card: #0f172a;
-  --card-border: #1e293b;
-  --primary: #38bdf8;
-  --primary-foreground: #082f49;
-  --muted: #94a3b8;
-  --accent: #6366f1;
+  --background: #ffffff;
+  --foreground: #111827;
+  --card: #ffffff;
+  --card-border: #e5e7eb;
+  --muted: #64748b;
+  --surface: #f8fafc;
+  --teamix-teal: #0dbfb8;
+  --teamix-blue: #2196f3;
+  --teamix-orange: #ff8c42;
+  --teamix-green: #4caf50;
+  --teamix-teal-light: #e6f9f8;
+  --teamix-blue-light: #e8f4fe;
+  --teamix-orange-light: #fff3eb;
+  --teamix-green-light: #edf7ed;
 }
 
 @theme inline {
@@ -16,8 +22,16 @@
   --color-foreground: var(--foreground);
   --color-card: var(--card);
   --color-card-border: var(--card-border);
-  --color-primary: var(--primary);
   --color-muted: var(--muted);
+  --color-surface: var(--surface);
+  --color-teamix-teal: var(--teamix-teal);
+  --color-teamix-blue: var(--teamix-blue);
+  --color-teamix-orange: var(--teamix-orange);
+  --color-teamix-green: var(--teamix-green);
+  --color-teamix-teal-light: var(--teamix-teal-light);
+  --color-teamix-blue-light: var(--teamix-blue-light);
+  --color-teamix-orange-light: var(--teamix-orange-light);
+  --color-teamix-green-light: var(--teamix-green-light);
   --font-sans: var(--font-geist-sans);
 }
 
@@ -29,4 +43,43 @@ body {
 
 * {
   border-color: var(--card-border);
+}
+
+.teamix-gradient-text {
+  background: linear-gradient(135deg, var(--teamix-teal), var(--teamix-blue));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.teamix-gradient-bg {
+  background: linear-gradient(135deg, var(--teamix-teal), var(--teamix-blue));
+}
+
+.teamix-gradient-soft {
+  background: linear-gradient(
+    180deg,
+    var(--teamix-teal-light) 0%,
+    #ffffff 40%,
+    var(--teamix-blue-light) 100%
+  );
+}
+
+.teamix-select {
+  display: flex;
+  height: 2.5rem;
+  width: 100%;
+  border-radius: 0.75rem;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  padding: 0 0.75rem;
+  font-size: 0.875rem;
+  color: #111827;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.teamix-select:focus {
+  border-color: var(--teamix-teal);
+  box-shadow: 0 0 0 3px rgba(13, 191, 184, 0.15);
 }

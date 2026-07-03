@@ -1,7 +1,7 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import { Building2, Users, UserCheck } from "lucide-react";
+import { Building2, UserCheck, Users } from "lucide-react";
 import { Card, CardDescription, CardTitle } from "@/components/ui/card";
 import { apiFetch } from "@/lib/api";
 import type { PlatformStats } from "@/lib/types";
@@ -21,36 +21,36 @@ export default function PlatformDashboardPage() {
       label: "Organisations",
       value: stats?.organizations ?? 0,
       icon: Building2,
-      color: "text-sky-400",
-      bg: "bg-sky-400/10",
+      color: "text-teamix-teal",
+      bg: "bg-teamix-teal-light",
     },
     {
       label: "Utilisateurs",
       value: stats?.users ?? 0,
       icon: Users,
-      color: "text-indigo-400",
-      bg: "bg-indigo-400/10",
+      color: "text-teamix-blue",
+      bg: "bg-teamix-blue-light",
     },
     {
       label: "Membres actifs",
       value: stats?.members ?? 0,
       icon: UserCheck,
-      color: "text-emerald-400",
-      bg: "bg-emerald-400/10",
+      color: "text-teamix-green",
+      bg: "bg-teamix-green-light",
     },
   ];
 
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-white">Back-office Platform</h1>
-        <p className="text-slate-400">Vue d&apos;ensemble de la plateforme Teamix</p>
+        <h1 className="text-2xl font-bold text-gray-900">Back-office Platform</h1>
+        <p className="text-gray-600">Vue d&apos;ensemble de la plateforme Teamix</p>
       </div>
 
       <div className="grid gap-4 sm:grid-cols-3">
         {cards.map(({ label, value, icon: Icon, color, bg }) => (
           <Card key={label}>
-            <div className={`mb-3 flex h-10 w-10 items-center justify-center rounded-lg ${bg}`}>
+            <div className={`mb-3 flex h-10 w-10 items-center justify-center rounded-xl ${bg}`}>
               <Icon className={`h-5 w-5 ${color}`} />
             </div>
             <CardTitle>{isLoading ? "…" : value}</CardTitle>

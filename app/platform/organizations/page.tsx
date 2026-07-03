@@ -51,8 +51,8 @@ export default function PlatformOrganizationsPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-white">Organisations</h1>
-          <p className="text-slate-400">Gérer les clients entreprise</p>
+          <h1 className="text-2xl font-bold text-gray-900">Organisations</h1>
+          <p className="text-gray-600">Gérer les clients entreprise</p>
         </div>
         <Button onClick={() => setShowForm(!showForm)}>
           <Plus className="mr-2 h-4 w-4" />
@@ -64,7 +64,7 @@ export default function PlatformOrganizationsPage() {
         <Card>
           <form onSubmit={createOrg} className="space-y-4">
             <div>
-              <label className="mb-1 block text-sm text-slate-300">Nom</label>
+              <label className="mb-1 block text-sm font-medium text-gray-700">Nom</label>
               <Input
                 value={name}
                 onChange={(e) => {
@@ -83,14 +83,14 @@ export default function PlatformOrganizationsPage() {
               />
             </div>
             <div>
-              <label className="mb-1 block text-sm text-slate-300">Slug</label>
+              <label className="mb-1 block text-sm font-medium text-gray-700">Slug</label>
               <Input
                 value={slug}
                 onChange={(e) => setSlug(e.target.value)}
                 placeholder="acme-corp"
               />
             </div>
-            {error && <p className="text-sm text-red-400">{error}</p>}
+            {error && <p className="text-sm text-red-500">{error}</p>}
             <div className="flex gap-2">
               <Button type="submit" disabled={submitting}>
                 {submitting ? "Création..." : "Créer"}
@@ -104,7 +104,7 @@ export default function PlatformOrganizationsPage() {
       )}
 
       <div className="grid gap-3">
-        {isLoading && <p className="text-slate-400">Chargement...</p>}
+        {isLoading && <p className="text-gray-600">Chargement...</p>}
         {orgs?.map((org) => (
           <Card key={org.id} className="flex items-center justify-between">
             <div>
@@ -116,7 +116,7 @@ export default function PlatformOrganizationsPage() {
           </Card>
         ))}
         {!isLoading && orgs?.length === 0 && (
-          <p className="text-center text-slate-500">Aucune organisation</p>
+          <p className="text-center text-gray-500">Aucune organisation</p>
         )}
       </div>
     </div>

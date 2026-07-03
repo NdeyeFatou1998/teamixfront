@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { Building2, Loader2 } from "lucide-react";
 import { TeamixLogo } from "@/components/brand/teamix-logo";
 import { Card, CardDescription, CardTitle } from "@/components/ui/card";
@@ -26,8 +27,8 @@ export default function SelectOrganizationPage() {
 
   if (!ready || !accessToken || !user) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-slate-950">
-        <Loader2 className="h-8 w-8 animate-spin text-sky-400" />
+      <div className="flex min-h-screen items-center justify-center teamix-gradient-soft">
+        <Loader2 className="h-8 w-8 animate-spin text-teamix-teal" />
       </div>
     );
   }
@@ -63,22 +64,22 @@ export default function SelectOrganizationPage() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-slate-950 p-4">
+    <div className="flex min-h-screen items-center justify-center teamix-gradient-soft p-4">
       <div className="w-full max-w-lg space-y-6">
         <div className="flex flex-col items-center gap-3">
-          <TeamixLogo variant="icon" width={56} height={56} className="rounded-xl" />
+          <TeamixLogo variant="with-name" width={200} height={64} />
           <div className="text-center">
-            <h1 className="text-xl font-semibold text-white">Choisir une organisation</h1>
-            <p className="text-sm text-slate-400">Sélectionnez l&apos;entreprise à gérer</p>
+            <h1 className="text-xl font-bold text-gray-900">Choisir une organisation</h1>
+            <p className="text-sm text-gray-600">Sélectionnez l&apos;entreprise à gérer</p>
           </div>
         </div>
 
         <div className="space-y-3">
           {memberships.map((m) => (
-            <Card key={m.id} className="flex items-center justify-between gap-4">
+            <Card key={m.id} className="flex items-center justify-between gap-4 shadow-sm">
               <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-sky-400/10">
-                  <Building2 className="h-5 w-5 text-sky-400" />
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teamix-blue-light">
+                  <Building2 className="h-5 w-5 text-teamix-blue" />
                 </div>
                 <div>
                   <CardTitle className="text-base">{m.organizationName}</CardTitle>
@@ -96,7 +97,7 @@ export default function SelectOrganizationPage() {
           ))}
         </div>
 
-        {error && <p className="text-center text-sm text-red-400">{error}</p>}
+        {error && <p className="text-center text-sm text-red-500">{error}</p>}
 
         {user.isPlatformSuperAdmin && (
           <div className="text-center">
@@ -105,6 +106,12 @@ export default function SelectOrganizationPage() {
             </Button>
           </div>
         )}
+
+        <p className="text-center text-sm">
+          <Link href="/" className="text-teamix-teal hover:underline">
+            ← Retour à l&apos;accueil
+          </Link>
+        </p>
       </div>
     </div>
   );
